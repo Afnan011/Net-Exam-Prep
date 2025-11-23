@@ -1,0 +1,90 @@
+.page-header {
+  text-align: center;
+  padding: 60px 0 40px;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    
+    .highlight {
+      color: var(--secondary-color);
+    }
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+}
+
+.alert-box {
+  background: rgba(108, 99, 255, 0.1);
+  border: 1px solid var(--primary-color);
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  color: var(--text-main);
+
+  .icon {
+    font-size: 1.2rem;
+  }
+}
+
+.papers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding-bottom: 60px;
+}
+
+.paper-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+
+  .paper-icon {
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .paper-info {
+    flex: 1;
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+  }
+
+  .btn-download {
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+
+    &:hover {
+      background: var(--secondary-color);
+      color: var(--bg-dark);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="container page-header">
+  <h1>UGC NET <span class="highlight">Syllabus</span></h1>
+  <p>Paper 2: Computer Science and Applications</p>
+</div>
+
+<div class="container syllabus-grid">
+  @for (unit of units; track unit.id) {
+    <div class="card unit-card">
+      <div class="unit-number">Unit {{ unit.id }}</div>
+      <h3>{{ unit.title }}</h3>
+      <ul>
+        @for (topic of unit.topics; track topic) {
+          <li>{{ topic }}</li>
+        }
+      </ul>
+    </div>
+  }
+</div>

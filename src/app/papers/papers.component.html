@@ -1,0 +1,24 @@
+<div class="container page-header">
+  <h1>Previous Year <span class="highlight">Papers</span></h1>
+  <p>Practice with actual exam questions from 2012 to 2024.</p>
+</div>
+
+<div class="container papers-grid">
+  <div class="alert-box">
+    <span class="icon">ℹ️</span>
+    <p>Papers are hosted on external sources. Clicking download will open the source website.</p>
+  </div>
+
+  @for (year of years; track year) {
+    <div class="card paper-card">
+      <div class="paper-icon">📄</div>
+      <div class="paper-info">
+        <h3>{{ year }} Paper</h3>
+        <p>UGC NET Computer Science</p>
+      </div>
+      <a [href]="getLink(year)" target="_blank" class="btn-download">
+        Download
+      </a>
+    </div>
+  }
+</div>

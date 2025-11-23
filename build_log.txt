@@ -1,0 +1,19 @@
+Node.js version v25.2.1 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+[33m❯[39m Building...
+[32m✔[39m Building...
+Application bundle generation failed. [1.886 seconds] - 2025-11-23T05:42:53.087Z
+
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'routerLinkActiveOptions' since it isn't a known property of 'a'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/app.component.html:8:56:
+[37m      8 │ ...ve="active" [32m[routerLinkActiveOptions]="{exact: true}"[37m>Home</a></li>
+        ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component AppComponent.
+
+    src/app/app.component.ts:8:15:
+[37m      8 │   templateUrl: [32m'./app.component.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m

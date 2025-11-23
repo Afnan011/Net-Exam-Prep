@@ -1,0 +1,26 @@
+<header class="navbar">
+  <div class="container nav-container">
+    <a routerLink="/" class="logo">
+      NET<span class="highlight">Prep</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/syllabus" routerLinkActive="active">Syllabus</a></li>
+        <li><a routerLink="/papers" routerLinkActive="active">Papers</a></li>
+        <li><a routerLink="/quiz" routerLinkActive="active">Mock Quiz</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 UGC NET CS Prep. All rights reserved.</p>
+    <p class="disclaimer">Not affiliated with NTA or UGC.</p>
+  </div>
+</footer>

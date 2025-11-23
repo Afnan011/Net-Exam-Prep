@@ -1,0 +1,71 @@
+.page-header {
+  text-align: center;
+  padding: 60px 0 40px;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    
+    .highlight {
+      color: var(--secondary-color);
+    }
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+}
+
+.syllabus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  padding-bottom: 60px;
+}
+
+.unit-card {
+  position: relative;
+  overflow: hidden;
+
+  .unit-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+  }
+
+  h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+
+    li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+
+      &::before {
+        content: '•';
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+    }
+  }
+}

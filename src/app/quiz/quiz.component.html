@@ -1,0 +1,73 @@
+<div class="container page-header">
+  <h1>Mock <span class="highlight">Quiz</span></h1>
+  <p>Test your knowledge with these sample questions.</p>
+</div>
+
+<div class="container quiz-container">
+  <!-- Start Screen -->
+  @if (!quizStarted && !quizFinished) {
+    <div class="card start-screen">
+      <div class="icon">⏱️</div>
+      <h2>Ready to start?</h2>
+      <p>You will face {{ questions.length }} questions covering various topics of UGC NET Computer Science.</p>
+      <button (click)="startQuiz()" class="btn-primary">Start Quiz</button>
+    </div>
+  }
+
+  <!-- Question Screen -->
+  @if (quizStarted && !quizFinished) {
+    <div class="card question-card">
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="(currentQuestionIndex / questions.length) * 100"></div>
+      </div>
+      
+      <div class="question-header">
+        <span class="q-number">Question {{ currentQuestionIndex + 1 }}/{{ questions.length }}</span>
+        <span class="score">Score: {{ score }}</span>
+      </div>
+
+      <h3>{{ currentQuestion.question }}</h3>
+
+      <div class="options">
+        @for (option of currentQuestion.options; track option; let i = $index) {
+          <button 
+            class="option-btn" 
+            [class.selected]="selectedOptionIndex === i"
+            [class.correct]="isAnswered && i === currentQuestion.correctAnswer"
+            [class.wrong]="isAnswered && selectedOptionIndex === i && i !== currentQuestion.correctAnswer"
+            (click)="selectOption(i)"
+            [disabled]="isAnswered">
+            {{ option }}
+          </button>
+        }
+      </div>
+
+      @if (isAnswered) {
+        <div class="feedback">
+          @if (selectedOptionIndex === currentQuestion.correctAnswer) {
+            <p class="correct-msg">Correct! 🎉</p>
+          } @else {
+            <p class="wrong-msg">Incorrect. The correct answer is: {{ currentQuestion.options[currentQuestion.correctAnswer] }}</p>
+          }
+          <button (click)="nextQuestion()" class="btn-primary next-btn">
+            {{ currentQuestionIndex === questions.length - 1 ? 'Finish Quiz' : 'Next Question' }}
+          </button>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Result Screen -->
+  @if (quizFinished) {
+    <div class="card result-screen">
+      <div class="icon">🏆</div>
+      <h2>Quiz Completed!</h2>
+      <p class="final-score">Your Score: <span class="highlight">{{ score }}</span> / {{ questions.length }}</p>
+      
+      <div class="action-buttons">
+        <button (click)="restartQuiz()" class="btn-primary">Try Again</button>
+        <a routerLink="/" class="btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  }
+</div>
