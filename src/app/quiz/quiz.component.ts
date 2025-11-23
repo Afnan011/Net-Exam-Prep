@@ -1,68 +1,106 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-interface Question {
-  question: string;
-  options: string[];
-  correctAnswer: number;
-}
+import { FormsModule } from '@angular/forms';
+import { QuestionService, Question, Unit } from '../services/question.service';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
 })
 export class QuizComponent {
-  questions: Question[] = [
-    {
-      question: "Which of the following is NOT a valid state in the Process State Transition Diagram?",
-      options: ["Running", "Ready", "Blocked", "Deleted"],
-      correctAnswer: 3
-    },
-    {
-      question: "In the context of DBMS, what does ACID stand for?",
-      options: [
-        "Atomicity, Consistency, Isolation, Durability",
-        "Accuracy, Consistency, Isolation, Durability",
-        "Atomicity, Concurrency, Isolation, Durability",
-        "Atomicity, Consistency, Integrity, Durability"
-      ],
-      correctAnswer: 0
-    },
-    {
-      question: "Which data structure is best suited for implementing a recursive algorithm?",
-      options: ["Queue", "Stack", "Linked List", "Tree"],
-      correctAnswer: 1
-    },
-    {
-      question: "What is the time complexity of Binary Search?",
-      options: ["O(n)", "O(n log n)", "O(log n)", "O(1)"],
-      correctAnswer: 2
-    },
-    {
-      question: "Which layer of the OSI model is responsible for routing?",
-      options: ["Data Link Layer", "Network Layer", "Transport Layer", "Session Layer"],
-      correctAnswer: 1
-    }
-  ];
-
+  units: Unit[] = [];
+  questions: Question[] = [];
   currentQuestionIndex = 0;
   score = 0;
+  
+  // State flags
   quizStarted = false;
   quizFinished = false;
+  loading = false;
+  error: string | null = null;
+  
+  // Selection state
+  selectedMode: 'master' | 'unit' | null = null;
+  selectedUnitId: number | null = null;
+
+  // Question state
   selectedOptionIndex: number | null = null;
   isAnswered = false;
 
-  get currentQuestion(): Question {
-    return this.questions[this.currentQuestionIndex];
+  constructor(private questionService: QuestionService, private cdr: ChangeDetectorRef) {
+    this.loadUnits();
+  }
+
+  loadUnits() {
+    this.questionService.getUnits().subscribe({
+      next: (units) => {
+        this.units = units;
+      },
+      error: (err) => {
+        console.error('Failed to load units', err);
+        this.error = 'Failed to load quiz data. Please check your connection.';
+      }
+    });
+  }
+
+  selectMode(mode: 'master' | 'unit') {
+    this.selectedMode = mode;
+    this.selectedUnitId = null;
+    this.error = null;
+  }
+
+  selectUnit(unitId: number) {
+    this.selectedUnitId = unitId;
   }
 
   startQuiz() {
+    this.loading = true;
     this.quizStarted = true;
+    this.quizFinished = false;
+    this.score = 0;
+    this.currentQuestionIndex = 0;
+    this.error = null;
     this.resetQuestionState();
+
+    if (this.selectedMode === 'master') {
+      this.questionService.getMasterQuizQuestions(20).subscribe({
+        next: (questions) => {
+          this.questions = questions;
+          this.loading = false;
+          this.cdr.detectChanges();
+        },
+        error: (err) => {
+          console.error('QuizComponent: Master Quiz error', err);
+          this.loading = false;
+          this.error = 'Failed to generate Master Quiz. Please try again.';
+          this.quizStarted = false;
+          this.cdr.detectChanges();
+        }
+      });
+    } else if (this.selectedMode === 'unit' && this.selectedUnitId) {
+      this.questionService.getQuestionsForUnit(this.selectedUnitId, 5).subscribe({
+        next: (questions) => {
+          this.questions = questions;
+          this.loading = false;
+          this.cdr.detectChanges();
+        },
+        error: (err) => {
+          console.error('QuizComponent: Unit Quiz error', err);
+          this.loading = false;
+          this.error = 'Failed to generate Unit Quiz. Please try again.';
+          this.quizStarted = false;
+          this.cdr.detectChanges();
+        }
+      });
+    }
+  }
+
+  get currentQuestion(): Question {
+    return this.questions[this.currentQuestionIndex];
   }
 
   selectOption(index: number) {
@@ -91,10 +129,10 @@ export class QuizComponent {
   }
 
   restartQuiz() {
-    this.currentQuestionIndex = 0;
-    this.score = 0;
     this.quizStarted = false;
     this.quizFinished = false;
-    this.resetQuestionState();
+    this.selectedMode = null;
+    this.selectedUnitId = null;
+    this.questions = [];
   }
 }

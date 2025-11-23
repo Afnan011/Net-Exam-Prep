@@ -1,0 +1,32 @@
+Node.js version v25.2.1 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+[33m❯[39m Building...
+[32m✔[39m Building...
+Application bundle generation failed. [2.297 seconds] - 2025-11-23T06:19:33.644Z
+
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngModel' since it isn't a known property of 'select'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/quiz/quiz.component.html:35:18:
+[37m      35 │           <select [32m[(ngModel)]="selectedUnitId"[37m class="unit-dropdown">
+         ╵                   [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component QuizComponent.
+
+    src/app/quiz/quiz.component.ts:10:15:
+[37m      10 │   templateUrl: [32m'./quiz.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'ngValue' since it isn't a known property of 'option'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/quiz/quiz.component.html:36:20:
+[37m      36 │             <option [32m[ngValue]="null"[37m disabled>-- Choose a Unit --<...
+         ╵                     [32m~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component QuizComponent.
+
+    src/app/quiz/quiz.component.ts:10:15:
+[37m      10 │   templateUrl: [32m'./quiz.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m

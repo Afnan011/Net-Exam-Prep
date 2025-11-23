@@ -1,24 +1,80 @@
 <div class="container page-header">
   <h1>Mock <span class="highlight">Quiz</span></h1>
-  <p>Test your knowledge with these sample questions.</p>
+  <p>Test your knowledge with randomized questions.</p>
 </div>
 
 <div class="container quiz-container">
-  <!-- Start Screen -->
+  <!-- Selection Screen -->
   @if (!quizStarted && !quizFinished) {
-    <div class="card start-screen">
-      <div class="icon">⏱️</div>
-      <h2>Ready to start?</h2>
-      <p>You will face {{ questions.length }} questions covering various topics of UGC NET Computer Science.</p>
-      <button (click)="startQuiz()" class="btn-primary">Start Quiz</button>
+    <div class="card selection-screen">
+      <h2>Choose Quiz Mode</h2>
+      
+      <div class="mode-selector">
+        <button 
+          class="mode-btn" 
+          [class.active]="selectedMode === 'master'"
+          (click)="selectMode('master')">
+          <div class="icon">🏆</div>
+          <h3>Master Quiz</h3>
+          <p>20 Questions from all units</p>
+        </button>
+
+        <button 
+          class="mode-btn" 
+          [class.active]="selectedMode === 'unit'"
+          (click)="selectMode('unit')">
+          <div class="icon">📚</div>
+          <h3>Unit Quiz</h3>
+          <p>5 Questions from a specific unit</p>
+        </button>
+      </div>
+
+      @if (selectedMode === 'unit') {
+        <div class="unit-selector">
+          <h3>Select a Unit:</h3>
+          <select [(ngModel)]="selectedUnitId" class="unit-dropdown">
+            <option [ngValue]="null" disabled>-- Choose a Unit --</option>
+            @for (unit of units; track unit.id) {
+              <option [ngValue]="unit.id">Unit {{ unit.id }}: {{ unit.name }}</option>
+            }
+          </select>
+        </div>
+      }
+
+      <div class="actions">
+        <button 
+          class="btn-primary" 
+          [disabled]="!selectedMode || (selectedMode === 'unit' && !selectedUnitId)"
+          (click)="startQuiz()">
+          Start Quiz
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading questions...</p>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error) {
+    <div class="card error-state">
+      <div class="icon">⚠️</div>
+      <h3>Something went wrong</h3>
+      <p>{{ error }}</p>
+      <button (click)="restartQuiz()" class="btn-primary">Try Again</button>
     </div>
   }
 
   <!-- Question Screen -->
-  @if (quizStarted && !quizFinished) {
+  @if (quizStarted && !quizFinished && !loading && !error && questions.length > 0) {
     <div class="card question-card">
       <div class="progress-bar">
-        <div class="progress" [style.width.%]="(currentQuestionIndex / questions.length) * 100"></div>
+        <div class="progress" [style.width.%]="((currentQuestionIndex + 1) / questions.length) * 100"></div>
       </div>
       
       <div class="question-header">
@@ -60,12 +116,12 @@
   <!-- Result Screen -->
   @if (quizFinished) {
     <div class="card result-screen">
-      <div class="icon">🏆</div>
+      <div class="icon">🎉</div>
       <h2>Quiz Completed!</h2>
       <p class="final-score">Your Score: <span class="highlight">{{ score }}</span> / {{ questions.length }}</p>
       
       <div class="action-buttons">
-        <button (click)="restartQuiz()" class="btn-primary">Try Again</button>
+        <button (click)="restartQuiz()" class="btn-primary">Take Another Quiz</button>
         <a routerLink="/" class="btn-secondary">Back to Home</a>
       </div>
     </div>

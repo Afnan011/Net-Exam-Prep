@@ -52,10 +52,18 @@ a {
   box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
   transition: transform 0.2s, box-shadow 0.2s;
   display: inline-block;
+  text-align: center;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(108, 99, 255, 0.6);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 }
 
@@ -89,4 +97,58 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
+}
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .navbar {
+    .nav-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .nav-links {
+      gap: 15px;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .hero {
+    padding: 60px 0 40px !important;
+    
+    .cta-group {
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+  
+  .quiz-container {
+    .selection-screen {
+      padding: 20px;
+      
+      .mode-selector {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .question-card {
+      padding: 20px;
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+  }
 }

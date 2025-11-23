@@ -1,0 +1,314 @@
+{
+  "units": [
+    {
+      "id": 1,
+      "name": "Discrete Structures and Optimization",
+      "questions": [
+        {
+          "question": "Which of the following is a tautology?",
+          "options": ["p ∨ ¬p", "p ∧ ¬p", "p → ¬p", "¬p → p"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "The number of edges in a complete graph with n vertices is:",
+          "options": ["n(n-1)/2", "n(n+1)/2", "n^2", "2n"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "In a lattice, every pair of elements has:",
+          "options": ["Only a LUB", "Only a GLB", "Both a LUB and a GLB", "Neither LUB nor GLB"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "Which algorithm is used to find the shortest path in a graph with non-negative edge weights?",
+          "options": ["Prim's Algorithm", "Kruskal's Algorithm", "Dijkstra's Algorithm", "Bellman-Ford Algorithm"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "A relation R on set A is an equivalence relation if it is:",
+          "options": ["Reflexive, Symmetric, Transitive", "Reflexive, Asymmetric, Transitive", "Irreflexive, Symmetric, Transitive", "Reflexive, Antisymmetric, Transitive"],
+          "correctAnswer": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Computer System Architecture",
+      "questions": [
+        {
+          "question": "The simplified form of the Boolean expression (X + Y)(X + Z) is:",
+          "options": ["X + YZ", "XY + Z", "X(Y + Z)", "XZ + Y"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Which addressing mode is used in the instruction PUSH B?",
+          "options": ["Immediate", "Register", "Direct", "Register Indirect"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "DMA stands for:",
+          "options": ["Direct Memory Allocation", "Distinct Memory Access", "Direct Memory Access", "Dynamic Memory Allocation"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "A flip-flop is a binary cell capable of storing information of:",
+          "options": ["One bit", "One byte", "One word", "Eight bits"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "The time required to access a sector in a hard disk is sum of:",
+          "options": ["Seek time + Rotational latency", "Seek time + Transfer time", "Rotational latency + Transfer time", "Seek time + Rotational latency + Transfer time"],
+          "correctAnswer": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Programming Languages and Computer Graphics",
+      "questions": [
+        {
+          "question": "Which of the following is NOT an Object Oriented Programming concept?",
+          "options": ["Polymorphism", "Inheritance", "Encapsulation", "Compilation"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "In C++, which operator cannot be overloaded?",
+          "options": ["+", "++", "::", "=="],
+          "correctAnswer": 2
+        },
+        {
+          "question": "The process of converting a 3D object into a 2D image is called:",
+          "options": ["Modeling", "Rendering", "Animation", "Simulation"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "Which algorithm is used for line drawing?",
+          "options": ["Cohen-Sutherland", "Bresenham's", "Z-buffer", "Phong Shading"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "What is the output of 'printf(\"%d\", 10/3)' in C?",
+          "options": ["3.33", "3", "3.0", "Error"],
+          "correctAnswer": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Database Management Systems",
+      "questions": [
+        {
+          "question": "Which normal form is based on the concept of functional dependency?",
+          "options": ["1NF", "2NF", "3NF", "All of the above"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "The command to remove a table from a database is:",
+          "options": ["DELETE TABLE", "REMOVE TABLE", "DROP TABLE", "ERASE TABLE"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "ACID properties of a transaction are:",
+          "options": ["Atomicity, Consistency, Isolation, Durability", "Atomicity, Concurrency, Isolation, Durability", "Accuracy, Consistency, Isolation, Durability", "Atomicity, Consistency, Integrity, Durability"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Which of the following is an aggregate function in SQL?",
+          "options": ["SELECT", "ORDER BY", "COUNT", "GROUP BY"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "A primary key must be:",
+          "options": ["Unique and Not Null", "Unique and Null", "Not Unique and Not Null", "Not Unique and Null"],
+          "correctAnswer": 0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "System Software and Operating System",
+      "questions": [
+        {
+          "question": "Which of the following is NOT a valid state in the Process State Transition Diagram?",
+          "options": ["Running", "Ready", "Blocked", "Deleted"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "Which scheduling algorithm suffers from the convoy effect?",
+          "options": ["SJF", "Round Robin", "FCFS", "Priority Scheduling"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "Banker's algorithm is used for:",
+          "options": ["Deadlock Prevention", "Deadlock Avoidance", "Deadlock Detection", "Deadlock Recovery"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "Thrashing occurs when:",
+          "options": ["CPU utilization is high", "Page fault rate is high", "Process is waiting for I/O", "Deadlock occurs"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "A linker program:",
+          "options": ["Places the program in memory", "Links the program with other programs needed for its execution", "Translates the program", "Allocates memory"],
+          "correctAnswer": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Software Engineering",
+      "questions": [
+        {
+          "question": "The spiral model of software development is best suited for:",
+          "options": ["Small projects", "Projects with high risk", "Projects with well-defined requirements", "Maintenance projects"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "Black box testing focuses on:",
+          "options": ["Internal logic", "Functional requirements", "Code structure", "Control flow"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "COCOMO stands for:",
+          "options": ["Constructive Cost Model", "Common Control Model", "Composition Cost Model", "Constructive Code Model"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Which coupling is least desirable?",
+          "options": ["Data Coupling", "Control Coupling", "Common Coupling", "Content Coupling"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "SRS stands for:",
+          "options": ["Software Requirement Specification", "System Requirement Specification", "Software Requirement System", "System Requirement System"],
+          "correctAnswer": 0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Data Structures and Algorithms",
+      "questions": [
+        {
+          "question": "The worst-case time complexity of Quick Sort is:",
+          "options": ["O(n log n)", "O(n^2)", "O(n)", "O(log n)"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "Which data structure is used for Breadth First Search (BFS)?",
+          "options": ["Stack", "Queue", "Tree", "Graph"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "The height of a binary tree with n nodes is at least:",
+          "options": ["O(log n)", "O(n)", "O(n log n)", "O(1)"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Which of the following is a stable sorting algorithm?",
+          "options": ["Quick Sort", "Heap Sort", "Merge Sort", "Selection Sort"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "In a circular linked list, the next pointer of the last node points to:",
+          "options": ["Null", "First node", "Middle node", "Previous node"],
+          "correctAnswer": 1
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Theory of Computation and Compilers",
+      "questions": [
+        {
+          "question": "A language is regular if and only if it is accepted by:",
+          "options": ["DFA", "PDA", "LBA", "Turing Machine"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Context-free grammar (CFG) can be recognized by:",
+          "options": ["Finite Automata", "Pushdown Automata", "Linear Bounded Automata", "Turing Machine"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "The set of all strings over {0, 1} having equal number of 0s and 1s is:",
+          "options": ["Regular", "Context Free", "Context Sensitive", "Recursive"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "Which phase of compiler generates the parse tree?",
+          "options": ["Lexical Analysis", "Syntax Analysis", "Semantic Analysis", "Code Generation"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "YACC is a tool for generating:",
+          "options": ["Lexical Analyzer", "Parser", "Code Generator", "Optimizer"],
+          "correctAnswer": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Data Communication and Computer Networks",
+      "questions": [
+        {
+          "question": "Which layer of the OSI model provides end-to-end delivery?",
+          "options": ["Network Layer", "Transport Layer", "Session Layer", "Data Link Layer"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "IPv4 address is of:",
+          "options": ["16 bits", "32 bits", "64 bits", "128 bits"],
+          "correctAnswer": 1
+        },
+        {
+          "question": "Which protocol is used to send email?",
+          "options": ["HTTP", "FTP", "SMTP", "POP3"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "The topology with the highest reliability is:",
+          "options": ["Bus", "Star", "Ring", "Mesh"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "What is the size of a MAC address?",
+          "options": ["32 bits", "48 bits", "64 bits", "128 bits"],
+          "correctAnswer": 1
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Artificial Intelligence (AI)",
+      "questions": [
+        {
+          "question": "Which search algorithm is guaranteed to find the optimal solution?",
+          "options": ["DFS", "BFS", "Hill Climbing", "A* Search"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "In AI, knowledge can be represented using:",
+          "options": ["Predicate Logic", "Semantic Nets", "Frames", "All of the above"],
+          "correctAnswer": 3
+        },
+        {
+          "question": "Which of the following is a supervised learning algorithm?",
+          "options": ["K-Means", "Apriori", "Decision Tree", "PCA"],
+          "correctAnswer": 2
+        },
+        {
+          "question": "Turing Test is used to determine:",
+          "options": ["Machine Intelligence", "Machine Speed", "Machine Memory", "Machine Power"],
+          "correctAnswer": 0
+        },
+        {
+          "question": "Fuzzy logic uses truth values between:",
+          "options": ["0 and 1 (inclusive)", "0 and 1 (exclusive)", "-1 and 1", "True and False only"],
+          "correctAnswer": 0
+        }
+      ]
+    }
+  ]
+}
